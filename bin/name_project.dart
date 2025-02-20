@@ -1,5 +1,5 @@
-import 'package:name_project/questao01.dart' as questao01;
+import 'package:name_project/questao02.dart' as q2;
 
 void main() {
-  questao01.init();
+  q2.init();
 }
