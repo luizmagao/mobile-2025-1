@@ -1,12 +1,22 @@
 import 'dart:io';
 
 void main() {
+  double numeroUm = 0;
+  double numeroDois = 0;
+  String entrada = "";
+  List<String> operacoes = <String>["+", "-", "/", "*"];
+
   print('Informe um número: ');
-  var numeroUm = double.parse(stdin.readLineSync()!);
-  print('Informe sua operação (+, -, /, *): ');
-  var operacao = stdin.readLineSync();
+  numeroUm = double.parse(stdin.readLineSync()!);
+  print('Informe sua operação ${operacoes.toString()}: ');
+  entrada = stdin.readLineSync()!;
+
+  if (!operacoes.contains(entrada)) {
+    print('Operação não existe');
+  }
+
   print('Informe outro número: ');
-  var numeroDois = double.parse(stdin.readLineSync()!);
+  numeroDois = double.parse(stdin.readLineSync()!);
 
   print('Resultado: ');
   void somar() {
@@ -25,7 +35,7 @@ void main() {
     print(numeroUm / numeroDois);
   }
 
-  switch (operacao) {
+  switch (entrada) {
     case '+':
       somar();
       break;
