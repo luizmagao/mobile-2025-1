@@ -6,19 +6,6 @@ void main() {
   String entrada = "";
   List<String> operacoes = <String>["+", "-", "/", "*"];
 
-  print('Informe um número: ');
-  numeroUm = double.parse(stdin.readLineSync()!);
-  print('Informe sua operação ${operacoes.toString()}: ');
-  entrada = stdin.readLineSync()!;
-
-  if (!operacoes.contains(entrada)) {
-    print('Operação não existe');
-  }
-
-  print('Informe outro número: ');
-  numeroDois = double.parse(stdin.readLineSync()!);
-
-  print('Resultado: ');
   void somar() {
     print(numeroUm + numeroDois);
   }
@@ -35,6 +22,21 @@ void main() {
     print(numeroUm / numeroDois);
   }
 
+  void getOperacao() {
+    print('Informe sua operação ${operacoes.toString()}: ');
+    entrada = stdin.readLineSync()!;
+    if (!operacoes.contains(entrada)) {
+      getOperacao();
+    }
+  }
+
+  print('Informe um número: ');
+  numeroUm = double.parse(stdin.readLineSync()!);
+  getOperacao();
+  print('Informe outro número: ');
+  numeroDois = double.parse(stdin.readLineSync()!);
+
+  print('Resultado: ');
   switch (entrada) {
     case '+':
       somar();
