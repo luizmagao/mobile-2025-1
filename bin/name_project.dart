@@ -9,9 +9,15 @@ void main() {
   int diasDeColheita = 30;
   bool isModura = false;
 
+  Fruta fruta1 = Fruta(fruta, cor, sabor, peso, diasDeColheita);
+  Fruta fruta2 = Fruta("Uva", "roxa", "Doce", 20.9, 29);
+
+  print(fruta1.fruta);
+  print(fruta1);
+
 }
 
-class fruta {
+class Fruta {
   String fruta;
   String cor;
   String sabor;
@@ -19,5 +25,5 @@ class fruta {
   int diasDeColheita;
   bool isModura;
 
-  Fruta(this.nome, this.cor, this.sabor, this.peso, this.diasDeColheita, {this.isModura});
+  Fruta(this.fruta, this.cor, this.sabor, this.peso, this.diasDeColheita, {this.isModura= false});
 }
