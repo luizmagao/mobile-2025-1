@@ -2,13 +2,13 @@ import 'dart:io';
 
 void main() {
 
-  int diasDeColheita = 25;
+  int diasDeColheita = 30;
   String fruta = "laranja";
 
-  mostrarMadura(fruta, diasDeColheita);
+  mostrarMadura(fruta: fruta, dias: diasDeColheita);
 }
 
-mostrarMadura(String fruta, int dias) {
+mostrarMadura({String? fruta, int dias = 0}) {
   if(dias >= 30) {
     print("A $fruta está madura.");
   } else {
