@@ -13,8 +13,13 @@ void requestData() {
   futureResponse.then((Response response) {
     print(response);
     print(response.body);
-    List<dymanic> listAccounts = json.d.ecode(response.body);
-    listAccounts.firstWhere((element) => element["name"] == 'Carla');
+    List<dynamic> listAccounts = json.decode(response.body);
+
+    Map<String, dynamic> mapCarla = listAccounts.firstWhere(
+      (element) => element["name"] == 'Carla'
+    );
+    
+    print(mapCarla);
   });
 
 }
