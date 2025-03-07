@@ -1,4 +1,5 @@
 import 'package:http/http.dart';
+import 'dart:convert';
 
 void main() {
   print("Iniciando o http");
@@ -12,5 +13,7 @@ void requestData() {
   futureResponse.then((Response response) {
     print(response);
     print(response.body);
+    json.decode(response.body);
   });
+
 }
