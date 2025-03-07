@@ -11,5 +11,6 @@ void requestData() {
   print(futureResponse);
   futureResponse.then((Response response) {
     print(response);
+    print(response.body);
   });
 }
