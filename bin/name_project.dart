@@ -2,6 +2,7 @@ import 'package:http/http.dart';
 
 void main() {
   print("Iniciando o http");
+  requestData();
 }
 
 void requestData() {
