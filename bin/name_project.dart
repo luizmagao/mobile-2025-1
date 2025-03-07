@@ -21,5 +21,6 @@ void requestData() {
     
     print(mapCarla);
   });
+  print("Última coisa a acontecer na função");
 
 }
