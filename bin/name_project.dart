@@ -3,7 +3,13 @@ import 'dart:convert';
 
 void main() {
   print("Iniciando o http");
-  requestDataSync();
+  // requestDataSync();
+  sendDataAsync({
+    "id": "NEW001",
+    "name": "Flutter",
+    "lastName": "Dart",
+    "balance": 5000,
+  });
 }
 
 void requestData() {
@@ -25,10 +31,16 @@ void requestData() {
   print("Última coisa a acontecer na função");
 }
 
-requestDataSync() async {
+Future<List<dynamic>> requestDataSync() async {
   String url =
       "https://gist.githubusercontent.com/luizmagao/161bd7cb770eb19256b8dc6055d53503/raw/cc10876ffca3ef619bda687dbba60054f7dc0961/accounts.json";
   Response request = await get(Uri.parse(url));
-  print(json.decode(request.body)[0]);
-  print("De fato, o final da função.");
+  return json.decode(request.body);
+}
+
+void sendDataAsync(Map<String, dynamic> mapAccount) async {
+  List<dynamic> listAccounts = await requestDataSync();
+  listAccounts.add(mapAccount);
+  String content = json.encode(listAccounts);
+  print(content);
 }
